@@ -100,7 +100,17 @@ module SmartListing
       else
         # let's sort by all attributes
         #
-        @collection = @collection.order(sort_keys.collect{|s| "#{s[1]} #{@sort[s[0]]}" if @sort[s[0]]}.compact) if @sort && !@sort.empty?
+        if @sort && !@sort.empty?
+          sort_keys.each do |s| 
+            if dir = @sort[s[0]]
+              if s[1].is_a? Proc
+                @collection = s[1].call(@collection, dir)
+              else
+                @collection = @collection.order("#{s[1]} #{dir}")
+              end
+            end
+          end
+        end
 
         if @options[:paginate] && @per_page > 0
           @collection = @collection.page(@page).per(@per_page)
