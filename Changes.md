@@ -1,9 +1,17 @@
+- Kaminari update [mizinsky]
+- Update Readme for Rails >= 5.1 Users [mizinsky]
+
+1.2.1
+-----------
+
 - Allow to render outside of controllers [bval]
 - Documentation fixes [blackcofla]
 - Use id.to_json so integers and uuids will both work [sevgibson]
 - Fix popover in bootstrap 4 [sevgibson]
 - Fix Kaminari #num_pages deprecation warning [tylerhunt]
 - Add support for Turbolinks 5 [wynksaiddestroy]
+- Use #empty? for AC::Params [phoffer]
+- Fix indentation in some files [boy-papan]
 
 1.2.0
 -----------
