@@ -87,6 +87,10 @@ module SmartListing
         @template.render(:partial => 'smart_listing/pagination_per_page_link', :locals => default_locals.merge(locals))
       end
 
+      def resource_url
+        url = @template.url_for(sanitize_params(@template.params.merge(@smart_listing.all_params)))
+      end
+
       def sortable title, attribute, options = {}
         dirs = options[:sort_dirs] || @smart_listing.sort_dirs || [nil, "asc", "desc"]
 
