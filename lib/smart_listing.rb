@@ -111,7 +111,7 @@ module SmartListing
         #
         if @sort && !@sort.empty?
           sort_keys.each do |s| 
-            if dir = @sort[s[0]]
+            unless (dir = @sort[s[0]]).blank?
               if s[1].is_a? Proc
                 @collection = s[1].call(@collection, dir)
               else
