@@ -284,8 +284,8 @@ module SmartListing
             template = 'action_custom'
           else
             locals.merge!(
-	      :action => action,
-	    )
+              :action => action,
+            )
           end
 
           locals[:icon] = [locals[:icon], smart_listing_config.classes(:muted)] if !locals[:action_if]
