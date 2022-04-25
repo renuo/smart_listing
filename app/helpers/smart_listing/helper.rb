@@ -88,7 +88,7 @@ module SmartListing
       end
 
       def resource_url
-        url = @template.url_for(@template.params.merge(@smart_listing.all_params))
+        url = @template.url_for(@template.request.params.merge(@smart_listing.all_params))
       end
 
       def sortable title, attribute, options = {}
